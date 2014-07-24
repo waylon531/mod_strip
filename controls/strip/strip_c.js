@@ -275,7 +275,16 @@ var strip_c = function(spec, my) {
   // ```
   position_tab = function(tab_id, idx) {
     var tab = my.tabs_divs[tab_id];
-    tab.css('left', idx * (my.TAB_WIDTH + my.TAB_MARGIN));
+    if (idx == 0) {
+      tab.css('left', idx * (my.TAB_WIDTH + my.TAB_MARGIN));
+      tab.css('width', 60)
+      window.firstTab=tab_id;
+      //document.getElementById(tab_id).getElementsByClassName("close").style.display = "block";
+      //alert(window.firstTab);
+    } else {
+      tab.css('left', idx * (my.TAB_WIDTH + my.TAB_MARGIN) + 30);
+      tab.css('width', 30)
+    }
     /* If this is the active tab, we make sure it is visible. */
     if(my.active === tab_id) {
       var tabs_width = Object.keys(my.tabs_divs).length * (my.TAB_WIDTH + my.TAB_MARGIN);
@@ -301,6 +310,7 @@ var strip_c = function(spec, my) {
   // @tab_id {string} the tab id
   // ```
   remove_tab = function(tab_id) {
+    //alert(idx);
     var tab = my.tabs_divs[tab_id];
     delete my.tabs_divs[tab_id];
     tab.remove();
@@ -368,7 +378,9 @@ var strip_c = function(spec, my) {
       /* Cleanup Closed tabs */
       Object.keys(my.tabs_divs).forEach(function(tab_id) {
         if(!tabs_data[tab_id]) {
-          remove_tab(tab_id);
+          if(window.firstTab == tab_id) {
+            remove_tab(tab_id);
+          }
         }
       });
 

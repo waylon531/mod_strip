@@ -135,8 +135,12 @@
 
   cursor: pointer;
   transition: left 0.1s;
+  transition: width .1s;
+  -webkit-transition: width .1s; /* Safari and Chrome */
 }
 
+.strip .tabs .tab:hover {
+}
 .strip .tabs .tab > div.back-loading {
   position: absolute;
   bottom: 0;
@@ -238,10 +242,10 @@
   font-size: 0.8em;
   cursor: pointer;
 }
-.strip .tabs .tab:hover > div.close {
+.strip .tabs .tabactive > div.close {
   display: block;
 }
-.strip .tabs .tab > div.close:hover {
+.strip .tabs .tabactive > div.close:hover {
   color: hsl(0, 50%, 50%) !important;
 }
 .strip .tabs .tab > div.close > div {
