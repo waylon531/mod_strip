@@ -33,7 +33,7 @@ var strip_c = function(spec, my) {
   my.back_el = my.strip_el.find('.command.back');
   my.forward_el = my.strip_el.find('.command.forward');
 
-  my.TAB_WIDTH = 170;
+  my.TAB_WIDTH = 30;
   my.TAB_MARGIN = 0;
 
   /* Dictionary of tabs div elements. */

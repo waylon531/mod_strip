@@ -127,7 +127,7 @@
 .strip .tabs .tab {
   position: absolute;
   max-width: 170px;
-  min-width: 170px;
+  min-width: 30px;
   top: 0;
   bottom: 0;
 
